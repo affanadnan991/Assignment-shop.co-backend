@@ -46,20 +46,33 @@ mongoose
   });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors());
 app.use(express.json());
 
-// Ensure uploads directory exists and serve static files
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+// Ensure uploads directory exists safely (handling Vercel read-only filesystem)
+const uploadsDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, 'uploads');
+try {
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+} catch (e) {
+  console.warn('Uploads directory warning:', e.message);
 }
 app.use('/uploads', express.static(uploadsDir));
 
 // Serve /assets statically from backend/public/assets
-const publicAssetsDir = path.join(__dirname, 'public', 'assets');
-if (fs.existsSync(publicAssetsDir)) {
-  app.use('/assets', express.static(publicAssetsDir));
+try {
+  const publicAssetsDir = path.join(__dirname, 'public', 'assets');
+  if (fs.existsSync(publicAssetsDir)) {
+    app.use('/assets', express.static(publicAssetsDir));
+  }
+} catch (e) {
+  console.warn('Assets directory warning:', e.message);
 }
 
 // Multer Storage Configuration
@@ -94,25 +107,41 @@ app.use((req, res, next) => {
 
 // Helper functions for JSON Data Fallback
 const getProductsData = () => {
-  const filePath = path.join(__dirname, 'data', 'products.json');
-  if (!fs.existsSync(filePath)) return { products: [], reviews: [] };
-  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  try {
+    const filePath = path.join(__dirname, 'data', 'products.json');
+    if (!fs.existsSync(filePath)) return { products: [], reviews: [] };
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (e) {
+    return { products: [], reviews: [] };
+  }
 };
 
 const saveProductsData = (data) => {
-  const filePath = path.join(__dirname, 'data', 'products.json');
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  try {
+    const filePath = path.join(__dirname, 'data', 'products.json');
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (e) {
+    console.warn('Cannot write to JSON on read-only FS:', e.message);
+  }
 };
 
 const getOrdersData = () => {
-  const filePath = path.join(__dirname, 'data', 'orders.json');
-  if (!fs.existsSync(filePath)) return [];
-  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  try {
+    const filePath = path.join(__dirname, 'data', 'orders.json');
+    if (!fs.existsSync(filePath)) return [];
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (e) {
+    return [];
+  }
 };
 
 const saveOrdersData = (orders) => {
-  const filePath = path.join(__dirname, 'data', 'orders.json');
-  fs.writeFileSync(filePath, JSON.stringify(orders, null, 2), 'utf-8');
+  try {
+    const filePath = path.join(__dirname, 'data', 'orders.json');
+    fs.writeFileSync(filePath, JSON.stringify(orders, null, 2), 'utf-8');
+  } catch (e) {
+    console.warn('Cannot write to JSON on read-only FS:', e.message);
+  }
 };
 
 // PRODUCT NORMALIZATION HELPER
