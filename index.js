@@ -707,7 +707,11 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Standalone Express API Server running on port ${PORT}`);
-  console.log(`📁 Multer static uploads available at: http://localhost:${PORT}/uploads/`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Standalone Express API Server running on port ${PORT}`);
+    console.log(`📁 Multer static uploads available at: http://localhost:${PORT}/uploads/`);
+  });
+}
+
+module.exports = app;
