@@ -1,0 +1,328 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "T-SHIRT WITH TAPE DETAILS",
+      "slug": "t-shirt-with-tape-details",
+      "description": "This graphic t-shirt is perfect for any occasion. Crafted from lightweight, breathable cotton fabric for all-day comfort and style.",
+      "price": 120,
+      "originalPrice": 150,
+      "discountPercentage": 20,
+      "rating": 4.5,
+      "reviewCount": 120,
+      "imageUrl": "/assets/new arrivals/tshirt-tape-details.png",
+      "gallery": [
+        "/assets/new arrivals/tshirt-tape-details.png"
+      ],
+      "category": "T-shirts",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Olive Green",
+          "hex": "#4F5D4E"
+        },
+        {
+          "name": "Navy Blue",
+          "hex": "#1A2530"
+        },
+        {
+          "name": "Black",
+          "hex": "#111111"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": true,
+      "isTopSelling": false,
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "name": "SKINNY FIT JEANS",
+      "slug": "skinny-fit-jeans",
+      "description": "Modern skinny fit denim jeans styled with subtle fading and whiskers. Made with stretch cotton denim for maximum comfort.",
+      "price": 240,
+      "originalPrice": 260,
+      "discountPercentage": 10,
+      "rating": 4.8,
+      "reviewCount": 95,
+      "imageUrl": "/assets/new arrivals/skinny-fit-jeans.png",
+      "gallery": [
+        "/assets/new arrivals/skinny-fit-jeans.png"
+      ],
+      "category": "Jeans",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Dark Blue",
+          "hex": "#263E59"
+        },
+        {
+          "name": "Washed Black",
+          "hex": "#222222"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": true,
+      "isTopSelling": false,
+      "inStock": true
+    },
+    {
+      "id": "3",
+      "name": "CHECKERED SHIRT",
+      "slug": "checkered-shirt",
+      "description": "Classic plaid checkered button-down shirt featuring long sleeves, spread collar, and chest pocket. Perfect for smart-casual wear.",
+      "price": 180,
+      "rating": 4.3,
+      "reviewCount": 88,
+      "imageUrl": "/assets/new arrivals/checkered-shirt.png",
+      "gallery": [
+        "/assets/new arrivals/checkered-shirt.png"
+      ],
+      "category": "Shirts",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Red/White",
+          "hex": "#9E2A2B"
+        },
+        {
+          "name": "Blue/Navy",
+          "hex": "#1C3144"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "isNewArrival": true,
+      "isTopSelling": false,
+      "inStock": true
+    },
+    {
+      "id": "4",
+      "name": "SLEEVE STRIPED T-SHIRT",
+      "slug": "sleeve-striped-t-shirt",
+      "description": "Sporty sleeve striped crew neck tee made with premium combed cotton. Features bold contrast shoulder stripes.",
+      "price": 130,
+      "originalPrice": 160,
+      "discountPercentage": 20,
+      "rating": 4.6,
+      "reviewCount": 140,
+      "imageUrl": "/assets/new arrivals/sleeve-striped-tshirt.png",
+      "gallery": [
+        "/assets/new arrivals/sleeve-striped-tshirt.png"
+      ],
+      "category": "T-shirts",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Orange/Black",
+          "hex": "#D96B27"
+        },
+        {
+          "name": "White/Navy",
+          "hex": "#F4F4F6"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": true,
+      "isTopSelling": false,
+      "inStock": true
+    },
+    {
+      "id": "5",
+      "name": "VERTICAL STRIPED SHIRT",
+      "slug": "vertical-striped-shirt",
+      "description": "Refined vertical striped shirt crafted from crisp linen-blend fabric. Clean tailoring for formal or casual meetings.",
+      "price": 212,
+      "originalPrice": 232,
+      "discountPercentage": 20,
+      "rating": 5,
+      "reviewCount": 210,
+      "imageUrl": "/assets/top selling/vertical-striped-shirt.png",
+      "gallery": [
+        "/assets/top selling/vertical-striped-shirt.png"
+      ],
+      "category": "Shirts",
+      "style": "Formal",
+      "colors": [
+        {
+          "name": "Green/White",
+          "hex": "#2E5A44"
+        },
+        {
+          "name": "Light Blue",
+          "hex": "#7BB3D2"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": false,
+      "isTopSelling": true,
+      "inStock": true
+    },
+    {
+      "id": "6",
+      "name": "COURAGE GRAPHIC T-SHIRT",
+      "slug": "courage-graphic-t-shirt",
+      "description": "Bold typography graphic tee inspired by urban street style. Made from 100% heavyweight organic cotton.",
+      "price": 145,
+      "rating": 4.7,
+      "reviewCount": 310,
+      "imageUrl": "/assets/top selling/courage-graphic-tshirt.png",
+      "gallery": [
+        "/assets/top selling/courage-graphic-tshirt.png"
+      ],
+      "category": "T-shirts",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Bright Orange",
+          "hex": "#E85D04"
+        },
+        {
+          "name": "Off White",
+          "hex": "#F7F7F7"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": false,
+      "isTopSelling": true,
+      "inStock": true
+    },
+    {
+      "id": "7",
+      "name": "LOOSE FIT BERMUDA SHORTS",
+      "slug": "loose-fit-bermuda-shorts",
+      "description": "Relaxed fit cargo bermuda shorts with elastic waistband and deep utility pockets for ultimate weekend comfort.",
+      "price": 80,
+      "rating": 4.4,
+      "reviewCount": 78,
+      "imageUrl": "/assets/top selling/loose-fit-shorts.png",
+      "gallery": [
+        "/assets/top selling/loose-fit-shorts.png"
+      ],
+      "category": "Shorts",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Khaki",
+          "hex": "#C2B280"
+        },
+        {
+          "name": "Navy",
+          "hex": "#0B2545"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": false,
+      "isTopSelling": true,
+      "inStock": true
+    },
+    {
+      "id": "8",
+      "name": "FADED WASH SKINNY JEANS",
+      "slug": "faded-wash-skinny-jeans",
+      "description": "Vintage distressed wash denim jeans with reinforced stitching and slim tapered ankle openings.",
+      "price": 210,
+      "rating": 4.5,
+      "reviewCount": 165,
+      "imageUrl": "/assets/top selling/faded-wash-jeans.png",
+      "gallery": [
+        "/assets/top selling/faded-wash-jeans.png"
+      ],
+      "category": "Jeans",
+      "style": "Casual",
+      "colors": [
+        {
+          "name": "Light Wash",
+          "hex": "#8EA8C3"
+        },
+        {
+          "name": "Medium Blue",
+          "hex": "#3F6C9F"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "isNewArrival": false,
+      "isTopSelling": true,
+      "inStock": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": "r1",
+      "author": "Samantha D.",
+      "rating": 5,
+      "comment": "I'm absolutely in love with this t-shirt! The fit is spot on. Highly recommended!",
+      "date": "Posted on August 14, 2024",
+      "isVerified": true
+    },
+    {
+      "id": "r2",
+      "author": "Alex M.",
+      "rating": 5,
+      "comment": "The quality is unmatched for this price point. It holds up amazingly well after multiple washes.",
+      "date": "Posted on August 12, 2024",
+      "isVerified": true
+    },
+    {
+      "id": "r3",
+      "author": "Ethan R.",
+      "rating": 5,
+      "comment": "Super comfortable material and fast delivery. Fits true to size according to the chart.",
+      "date": "Posted on August 10, 2024",
+      "isVerified": true
+    },
+    {
+      "id": "r4",
+      "author": "Olivia P.",
+      "rating": 4.5,
+      "comment": "Sleek style and vibrant color! I get compliments whenever I wear this out.",
+      "date": "Posted on August 08, 2024",
+      "isVerified": true
+    },
+    {
+      "id": "r5",
+      "author": "Liam K.",
+      "rating": 5,
+      "comment": "Great customer service and fantastic clothing options. SHOP.CO is definitely my new go-to brand.",
+      "date": "Posted on August 05, 2024",
+      "isVerified": true
+    }
+  ]
+}
