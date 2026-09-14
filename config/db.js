@@ -68,36 +68,50 @@ async function seedDatabaseIfEmpty() {
   }
 }
 
-let isMongoConnected = false;
+let cachedPromise = null;
 
 const connectDB = async () => {
-  if (mongoose.connection.readyState >= 1) {
-    isMongoConnected = true;
-    return;
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
+  }
+
+  if (mongoose.connection.readyState === 2) {
+    if (cachedPromise) await cachedPromise;
+    return mongoose.connection;
   }
 
   const MONGODB_URI = process.env.MONGODB_URI;
   if (!MONGODB_URI) {
     console.warn('⚠️ MONGODB_URI environment variable is not defined!');
-    isMongoConnected = false;
-    return;
+    return null;
   }
 
-  try {
-    await mongoose.connect(MONGODB_URI, {
-      serverSelectionTimeoutMS: 4000,
-      connectTimeoutMS: 4000
-    });
-    isMongoConnected = true;
-    console.log('✅ Connected to MongoDB Database successfully');
-    await seedDatabaseIfEmpty();
-  } catch (err) {
-    isMongoConnected = false;
-    console.warn('⚠️ MongoDB connection warning, running with local storage fallback:', err.message);
+  if (!cachedPromise) {
+    cachedPromise = mongoose
+      .connect(MONGODB_URI, {
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 5000
+      })
+      .then(async (m) => {
+        console.log('✅ Connected to MongoDB Database successfully');
+        try {
+          await seedDatabaseIfEmpty();
+        } catch (e) {
+          console.warn('Seeding note:', e.message);
+        }
+        return m;
+      })
+      .catch((err) => {
+        cachedPromise = null;
+        console.warn('⚠️ MongoDB connection warning:', err.message);
+        return null;
+      });
   }
+
+  return cachedPromise;
 };
 
-const getMongoStatus = () => Boolean(mongoose.connection.readyState >= 1 || isMongoConnected);
+const getMongoStatus = () => Boolean(mongoose.connection.readyState === 1);
 
 module.exports = {
   connectDB,
