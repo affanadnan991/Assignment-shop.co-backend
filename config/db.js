@@ -68,10 +68,25 @@ async function seedDatabaseIfEmpty() {
   }
 }
 
+let isMongoConnected = false;
+
 const connectDB = async () => {
-  const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/shopco';
+  if (mongoose.connection.readyState >= 1) {
+    isMongoConnected = true;
+    return;
+  }
+
+  const MONGODB_URI = process.env.MONGODB_URI;
+  if (!MONGODB_URI) {
+    console.warn('⚠️ MONGODB_URI environment variable is not defined!');
+    isMongoConnected = false;
+    return;
+  }
+
   try {
-    await mongoose.connect(MONGODB_URI, { serverSelectionTimeoutMS: 5000 });
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000,
+    });
     isMongoConnected = true;
     console.log('✅ Connected to MongoDB Database successfully');
     await seedDatabaseIfEmpty();
@@ -81,7 +96,7 @@ const connectDB = async () => {
   }
 };
 
-const getMongoStatus = () => isMongoConnected;
+const getMongoStatus = () => Boolean(mongoose.connection.readyState >= 1 || isMongoConnected);
 
 module.exports = {
   connectDB,

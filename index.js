@@ -39,6 +39,16 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Ensure MongoDB is connected before handling any route (Crucial for Vercel Serverless)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+  } catch (err) {
+    console.warn('DB connection error in middleware:', err.message);
+  }
+  next();
+});
+
 // Serve /uploads statically (handling Vercel read-only filesystem)
 app.use('/uploads', express.static(uploadsDir));
 
